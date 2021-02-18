@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>signup</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form #signupForm="ngForm">
+        <ion-list>
+            <ion-item>
+                <ion-label position="floating">Adresse email</ion-label>
+                <ion-input
+                        #emailInput="ngModel"
+                        [(ngModel)]="email"
+                        email
+                        id="email-input"
+                        name="email"
+                        required
+                        type="email"
+                ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Mot de passe</ion-label>
+                <ion-input
+                        #passwordInput="ngModel"
+                        [(ngModel)]="password"
+                        id="password-input"
+                        name="password"
+                        required
+                        type="password"
+                ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Confirmer le mot de passe</ion-label>
+                <ion-input
+                        #passwordInput="ngModel"
+                        [(ngModel)]="passwordMatch"
+                        id="confirm-password-input"
+                        name="passwordMatch"
+                        required
+                        type="password"
+                ></ion-input>
+            </ion-item>
+        </ion-list>
+    </form>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-button
+                (click)="onSignup()"
+                [disabled]="!signupForm.form.valid"
+                expand="full"
+                id="signin-button"
+        >
+            S'inscrire
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

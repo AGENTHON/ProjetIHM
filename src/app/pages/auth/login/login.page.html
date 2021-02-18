@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>login</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form #loginForm="ngForm">
+        <ion-list>
+            <ion-item>
+                <ion-label position="floating">Adresse email</ion-label>
+                <ion-input
+                        #emailInput="ngModel"
+                        [(ngModel)]="email"
+                        id="email-input"
+                        name="email"
+                        required
+                        type="email"
+                ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Mot de passe</ion-label>
+                <ion-input
+                        #passwordInput="ngModel"
+                        [(ngModel)]="password"
+                        id="password-input"
+                        name="password"
+                        required
+                        type="password"
+                ></ion-input>
+            </ion-item>
+        </ion-list>
+    </form>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-button
+                (click)="onLogin()"
+                [disabled]="!loginForm.form.valid"
+                expand="full"
+                id="signin-button"
+        >
+            Se connecter
+            <ion-icon name="log-in-outline" slot="end"></ion-icon>
+        </ion-button>
+        <ion-button (click)="onSignup()" expand="full" id="signup-button">
+            S'inscrire
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>
